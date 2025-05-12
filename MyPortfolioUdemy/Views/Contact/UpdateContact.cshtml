@@ -1,0 +1,51 @@
+﻿@model MyPortfolioUdemy.DAL.Entities.Contact
+@{
+	ViewData["Title"] = "UpdateContact";
+	Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">İletişim</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">İletişim Güncelleme</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							İletişim ile ilgili güncelleme işlemleri aşağıdaki panelden yapabilirisniz
+						</div>
+
+						<form method="post">
+							<label>Başlık</label>
+							<input type="text" asp-for="Title" class="form-control" />
+							<br />
+							<label>Açıklama</label>
+							<input type="text" asp-for="Description" class="form-control" />
+							<br />
+							<label>Telefon</label>
+							<input type="text" asp-for="Phone1" class="form-control" />
+							<br />
+							<label>Mobil</label>
+							<input type="text" asp-for="Phone2" class="form-control" />
+							<br />
+							<label>Email1</label>
+							<input type="text" asp-for="Email1" class="form-control" />
+							<br />
+							<label>Email2</label>
+							<input type="text" asp-for="Email2" class="form-control" />
+							<br />
+							<label>Adres</label>
+							<input type="text" asp-for="Adress" class="form-control" />
+							<br />
+							<button class="btn btn-warning">İletişim Güncelle</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

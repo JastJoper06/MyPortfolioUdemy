@@ -1,0 +1,126 @@
+﻿@model List<MyPortfolioUdemy.DAL.Entities.Portfolio>
+
+<style>
+    .masonry-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .masonry__brick {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+        .masonry__brick:hover {
+            transform: translateY(-5px);
+        }
+
+    .item-folio__thumb img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .item-folio__text {
+        padding: 1rem;
+    }
+
+    .item-folio__title {
+        font-size: 1.2rem;
+        margin: 0 0 0.5rem;
+        font-weight: bold;
+    }
+
+    .item-folio__cat {
+        font-size: 1rem;
+        color: #888;
+    }
+
+    .item-folio__caption {
+        padding: 0 1rem 1rem;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    .item-folio__project-link {
+        margin: 0 1rem 1rem;
+        color: #3498db;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+    .shadow-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .thumb-link {
+        position: relative;
+        display: block;
+    }
+
+        .thumb-link:hover .shadow-overlay {
+            opacity: 1;
+        }
+</style>
+
+<section id="works" class="s-works target-section">
+
+    <div class="row narrow section-intro has-bottom-sep">
+        <div class="col-full">
+            <h3>Portfolyo</h3>
+            <h1>Son Projelerim.</h1>
+            <p class="lead">
+                Aşağıda, yazılım alanında geliştirdiğim bazı projeleri bulabilirsiniz.
+                Her biri farklı teknolojileri deneyimlediğim ve problem çözme becerilerimi geliştirdiğim çalışmalardır.
+            </p>
+        </div>
+    </div>
+
+    <div class="row masonry-wrap">
+        <div class="masonry-grid">
+            @foreach (var item in Model)
+            {
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="@item.ImageUrl" class="thumb-link" title="@item.Title" data-size="1050x700">
+                                <img src="@item.ImageUrl"
+                                     srcset="@item.ImageUrl 1x, @item.ImageUrl 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">@item.Title</h3>
+                            <p class="item-folio__cat">@item.SubTitle</p>
+                        </div>
+
+                        <a href="@item.Url" class="item-folio__project-link" title="@item.Title" target="_blank" rel="noopener noreferrer">
+                            <i class="im im-link"></i>
+                        </a>
+
+
+                        <div class="item-folio__caption">
+                            <p>@item.Description</p>
+                        </div>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+            }
+        </div>
+    </div>
+</section>

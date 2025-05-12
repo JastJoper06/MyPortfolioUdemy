@@ -1,0 +1,42 @@
+﻿@model MyPortfolioUdemy.DAL.Entities.Testimonial
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Referanslar</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Referans Ekleme</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Referans ile ilgili ekleme işlemleri aşağıdaki panelden yapabilirisniz
+						</div>
+
+						<form method="post">
+							<label>Ad Soyad</label>
+							<input type="text" asp-for="NameSurname" class="form-control" />
+							<br />
+							<label>Başlık</label>
+							<input type="text" asp-for="Title" class="form-control" />
+							<br />
+							<label>Açıklama</label>
+							<input type="text" asp-for="Description" class="form-control" />
+							<br />
+							<label>Resim Yolu</label>
+							<input type="text" asp-for="ImageUrl" class="form-control" />
+							<br />
+							<button class="btn btn-primary">Referans Ekle</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
